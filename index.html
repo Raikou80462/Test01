@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>乱数アプリ</title>
+  <link rel="manifest" href="manifest.json">
+  <style>
+    body { font-family: -apple-system, sans-serif; text-align: center; padding-top: 80px; background: #f2f2f7; }
+    .number { font-size: 96px; font-weight: bold; color: #007aff; margin: 40px 0; }
+    button { font-size: 20px; font-weight: bold; padding: 18px 45px; background: #007aff; color: white; border: none; border-radius: 14px; }
+    button:active { opacity: 0.7; }
+  </style>
+</head>
+<body>
+  <div class="number" id="num">0</div>
+  <button onclick="calc()">乱数を生成</button>
+
+  <script>
+    function calc() {
+      // 1〜100の乱数
+      document.getElementById('num').innerText = Math.floor(Math.random() * 100) + 1;
+    }
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('sw.js');
+    }
+  </script>
+</body>
+</html>
